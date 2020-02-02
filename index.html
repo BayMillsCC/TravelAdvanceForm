@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text],input[type=number],input[type=datetime-local] select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+  width: 100%;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <form action='travel_advance_form.php' method='post'>
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Employee Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" name="name" placeholder="Your name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="travelDestination">Travel Destination</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="travelDestination" name="travelDestination" placeholder="Where you are heading to">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="travelDates">Travel Date(s)</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="travelDates" name="travelDates" placeholder="Travel Date(s)">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="travelPurpose">Purpose of Travel</label>
+      </div>
+      <div class="col-75">
+        <textarea id="travelPurpose" name="travelPurpose" placeholder="Briefly explain where you are going and why" style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="transportationMethod">Method of Transportation</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="transportationMethod" name="transportationMethod" placeholder="Write down your method of transport">
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-25">
+        <label for="expensePaidAgency">Is any expense directory paid by another agency? (hotel, meals, or transportation)</label>
+      </div>
+      <div class="col-75">
+        <input type="radio" name="ePAY" value="Yes">Yes<br>
+        <input type="radio" name="ePAY" value="No" checked>No<br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="expenseReimburseAgency">Is any expense directory reimbursable for another agency?</label>
+      </div>
+      <div class="col-75">
+        <input type="radio" name="eRAY" value="Yes">Yes<br>
+        <input type="radio" name="eRAY" value="No" checked>No<br>
+      </div>
+      <div class="col-75">
+        <input type="text" id="eRAExplanation" name="eRAExplanation" placeholder="Who is the expense reimbursable to?">
+      </div>
+      <div class="col-25">
+        <label for="expenseReimburseMethod">What is their method of reimbursement?</label>
+      </div>
+      <div class="col-75">
+        <input type="checkbox" name="expenseReimburseActual" value="Actual">Actual Expense<br>
+        <input type="checkbox" name="expenseReimbursePerDiem" value="PerDiem">Per Diem Allowance<br>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-25">
+        <label for="professionalDevelopment">Is this travel for professional development?</label>
+      </div>
+      <div class="col-75">
+        <input type="radio" name="professionalDevelopment" value="profDevYes" checked>Yes<br>
+        <input type="radio" name="professionalDevelopment" value="profDevNo">No<br>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-25">
+        <label for="programCharged">Program to be charged/GL account number</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="programCharged" name="programCharged" placeholder="Program to be charged/GL account number">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="totalMiles">Enter the total miles</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="totalMiles" name="totalMiles" placeholder="Total Miles">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-25">
+        <label for="perDiemDeparture">Date and Time of Departure (Per Diem)</label>
+      </div>
+      <div class="col-75">
+        <input type="datetime-local" id="perDiemDeparture" name="perDiemDeparture" placeholder="Depature Date and Time">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="perDiemReturn">Date and Time of Return (Per Diem)</label>
+      </div>
+      <div class="col-75">
+        <input type="datetime-local" id="perDiemReturn" name="perDiemReturn" placeholder="Return Date and Time">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="perDiemRate">Per Diem Rate from <a href="https://www.gsa.gov/travel/plan-book/per-diem-rates/per-diem-rates-lookup">www.gsa.gov</a></label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="perDiemRate" name="perDiemRate" placeholder="Per Diem Rate" step="any">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="actualHotelCosts">Total Hotel Costs</label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="actualHotelCosts" name="actualHotelCosts" placeholder="Total Hotel Costs" step="any">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="actualFoodCosts">Total Food Costs</label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="actualFoodCosts" name="actualFoodCosts" placeholder="Total Food Costs" step="any">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="incidentalCosts">Total Incidentals</label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="incidentalCosts" name="incidentalCosts" placeholder="Total Incidentals" step="any">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-25">
+        <label for="miscItem1">Miscellaneous Item 1:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="miscItem1Name" name="miscItem1Name" placeholder="Misc Item 1 Name">
+      </div>
+      <div class="col-75">
+        <input type="number" id="miscItem1Value" name="miscItem1Value" placeholder="Misc Item 1 Amount" step="any">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-25">
+        <label for="miscItem2">Miscellaneous Item 2:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="miscItem2Name" name="miscItem2Name" placeholder="Misc Item 2 Name">
+      </div>
+      <div class="col-75">
+        <input type="number" id="miscItem2Value" name="miscItem2Value" placeholder="Misc Item 2 Amount" step="any">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-25">
+        <label for="miscItem3">Miscellaneous Item 3:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="miscItem3Name" name="miscItem3Name" placeholder="Misc Item 3 Name">
+      </div>
+      <div class="col-75">
+        <input type="number" id="miscItem3Value" name="miscItem3Value" placeholder="Misc Item 3 Amount" step="any">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-25">
+        <label for="miscItem4">Miscellaneous Item 4:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="miscItem4Name" name="miscItem4Name" placeholder="Misc Item 4 Name">
+      </div>
+      <div class="col-75">
+        <input type="number" id="miscItem4Value" name="miscItem4Value" placeholder="Misc Item 4 Amount" step="any">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-25">
+        <label for="miscItem5">Miscellaneous Item 5:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="miscItem5Name" name="miscItem5Name" placeholder="Misc Item 5 Name">
+      </div>
+      <div class="col-75">
+        <input type="number" id="miscItem5Value" name="miscItem5Value" placeholder="Misc Item 5 Amount" step="any">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <input name='submit' type="submit" value="Generate your Travel Advance Form">
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
